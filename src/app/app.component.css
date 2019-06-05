@@ -1,0 +1,41 @@
+.my-code-editor {
+  min-width: 50%;
+
+  height: calc(100vh - 140px);
+}
+.monaco-editor .vs-dark {
+  max-width: 100%;
+}
+.check-space {
+  margin-right: 30px;
+}
+
+.toolbar-select {
+  font-size: 14px;
+  margin: 0 15px;
+}
+
+@media screen and (max-width: 719px) {
+  .check-space {
+    display: block;
+  }
+  .check-space.mat-raised-button {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 5px 0;
+  }
+  ngx-monaco-editor.my-code-editor {
+    margin-bottom: 15px !important;
+  }
+}
+.hider {
+  display: none;
+}
+.container {
+  margin-right: 25%;
+}
+
+#control-mat-select {
+  width: 150px !important;
+}

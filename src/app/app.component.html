@@ -1,0 +1,91 @@
+<!--start header section of app-->
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>POCO C# to Typescript</span>
+  </mat-toolbar-row>
+</mat-toolbar>
+<!--end header section of app-->
+
+<!-- start setting section for output -->
+<div class="toolbar-select">
+  <mat-form-field class="check-space">
+    <mat-select
+      placeholder="Conversion Language"
+      disableOptionCentering
+      [value]="conversionLanguage"
+      (selectionChange)="onConversionLanguage($event.value)"
+    >
+      <mat-option *ngFor="let method of conversion" [value]="method.value">
+        {{ method.viewValue }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <button
+    class="check-space"
+    (click)="onFormat()"
+    mat-raised-button
+    color="primary"
+  >
+    Format
+  </button>
+  <mat-checkbox
+    class="check-space"
+    (change)="onPreserveAcessifier($event)"
+    [ngClass]="{ hider: !isCsharptoTypescript }"
+    >Preserve Access Specifiers</mat-checkbox
+  >
+  <mat-checkbox
+    class="check-space"
+    [ngClass]="{ hider: !isCsharptoTypescript }"
+    (change)="onChangeToInterface($event)"
+    >Class To Interface
+  </mat-checkbox>
+  <mat-form-field
+    id="control-mat-select"
+    class="check-space"
+    [ngClass]="{ hider: !isCsharptoTypescript }"
+  >
+    <mat-select
+      placeholder="Method Style"
+      disableOptionCentering
+      (selectionChange)="onMethodType($event.value)"
+    >
+      <mat-option *ngFor="let method of methods" [value]="method.value">
+        {{ method.viewValue }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <button
+    mat-raised-button
+    class="check-space"
+    color="primary"
+    (click)="onChangeTheme()"
+  >
+    Change editor theme
+  </button>
+</div>
+<!--end setting section for output-->
+
+<!-- start code editor section using ngx-monaco-editor and flexLayout angular-->
+<div
+  class="container"
+  fxLayout
+  fxLayout.xs="column"
+  fxLayoutAlign="left"
+  fxLayoutGap.xs="100px"
+>
+  <!--first editor on left side-->
+  <ngx-monaco-editor
+    class="my-code-editor"
+    (ngModelChange)="onChange($event)"
+    [options]="optionInput"
+    [(ngModel)]="inputCode"
+  ></ngx-monaco-editor>
+  <!--second editor on right side-->
+  <ngx-monaco-editor
+    class="my-code-editor"
+    [options]="optionOutput"
+    [(ngModel)]="output"
+  ></ngx-monaco-editor>
+</div>
+<!-- end code editor section using ngx-monaco-editor and flexLayout angular-->
