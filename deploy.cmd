@@ -116,8 +116,6 @@ IF !ERRORLEVEL! NEQ 0 goto error
 popd
 )
 
-https://passos.com.au/build-and-deploy-an-angular-app-from-github-to-azure-website/
-
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 goto end
